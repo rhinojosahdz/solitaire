@@ -198,8 +198,8 @@
             return !column.children('.card').size();
         }
         , _prepare_cards_for_foundation: function () {
-            $('#s-board .card').on('click touchstart', function () {
-                return;
+            $('#s-board .card').on('click', function () {
+                return; // there's bugs, that's why we have this return
                 var card = $(this);
                 if (card.css('z-index') === '2') {
                     return;
@@ -298,7 +298,7 @@
         , _prepare_stock: function () {
             var s = $('#s-stock');
             var w = $('#s-waste');
-            s.on('click touchstart', function () {
+            s.on('click', function () {
                 if (!shuffle_animation_ended) {
                     return;
                 }
