@@ -1,10 +1,11 @@
 // we use this values in s.js
 window.path = '';
-window.cards_path = window.path + 'imgs/cards/';
+// if you change this value make sure you change #s-templates>.card src to match the cards_path
+window.cards_path = window.path + 'imgs/cards-low-res/';
 
 $(function () {
-    translateMouseEventsToDragEvents();
     addImagesSoWindowOnloadWaitsTillTheyAreReady();
+    translateMouseEventsToDragEvents();    
 });
 
 $(window).on("load", function () {
@@ -18,10 +19,15 @@ $(window).on("load", function () {
 function addImagesSoWindowOnloadWaitsTillTheyAreReady() {
     var info = { 0: 's', 1: 'd', 2: 'h', 3: 's' };
     var cardElements = [];
+    var createElement = function (i, j, isBackCard) {
+        let card = isBackCard ? 'back.png' : (info[j] + (i + 1) + '.png');
+        // make sure the width/height match the one in s.css
+        return $('<img width="125px" height="181" alt="' + card + '" src="' + window.cards_path + card + '">');;
+    }
+    cardElements.push(createElement(undefined, undefined, true));    
     for (var i = 0; i < 13; i++) {
         for (var j = 0; j < 4; j++) {
-            let card = info[j] + (i + 1) + '.png';
-            cardElements.push($('<img width="125px" alt="' + card + '" src="' + window.cards_path + card + '">'));
+            cardElements.push(createElement(i, j));
         }
     }
     var cardsPerLine = 7;
