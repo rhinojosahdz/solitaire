@@ -1,0 +1,131 @@
+/*
+Property of Roberto Jaime Hinojosa Hernandez, All rights reserved.
+*/
+/* 
+    Created on : Oct 15, 2014, 5:43:59 AM
+    Author     : Roberto Jaime Hinojosa Hernandez
+*/
+
+/*margins and paddings*/
+body{
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+#s-board{
+    width: 1150px;
+    height: 1500px;
+}
+#s-tableau{
+    width: 1050px;/*margen de 25 entre columnas*/
+    height: 800px;
+}
+.card, #s-stock, #s-waste, #s-foundation>.column, #s-foundation>.column, #s-tableau>.column{
+    width: 125px;
+    height: 181px;
+}
+#s-foundation{
+    width: 620px;
+    height: 181px;
+    padding: 50px;/*padding y margin top son innecesario realmente, pero los usamos para extender el area de s-foundation y de esa manera el droppable tiene mas area*/
+    margin-top: -50px;/*ver comentario de arriba*/
+    margin-left: 100px;
+}
+#s-foundation>.column, #s-tableau>.column{
+    float: left;
+    position: relative;
+}
+#s-tableau>.column>.card{
+    position: relative;
+}
+#s-board{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+#s-board, #s-foundation, #s-stock, #s-tableau, #s-waste{
+    position: relative;
+}
+#s-foundation, #s-stock, #s-tableau, #s-waste{
+    float: left;
+}
+#s-tableau{
+    clear: left;
+    margin-top: 100px;
+    margin-left: 30px;
+}
+.column{
+    margin-right: 25px;
+}
+
+#s-foundation .number4.column{
+    margin-right: 0px;
+}
+
+#s-waste{
+    margin-left: 50px;
+}
+
+#s-stock>.card, #s-waste>.card, #s-foundation>.column>.card{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+/*\margins and paddings*/
+
+
+
+#s-templates{
+    display: none;
+}
+
+.card.hover_card{
+    opacity: .8;
+    border: 1px solid yellow;
+}
+
+#s-stock,.card, window {/*evita seleccionar el div al hacer doble click*/ 
+    -moz-user-select: none; 
+    -khtml-user-select: none; 
+    -webkit-user-select: none; 
+    -o-user-select: none; 
+} 
+.card.ui-draggable-dragging{/*la carta que dragueamos siempre estara arriba de las otras*/
+    z-index: 2;
+}
+.card.ui-draggable{
+    cursor: move;
+}
+#s-tableau>.column.ui-droppable-disabled{
+    /*cuando una columna en el tableau se vuelve vacia, la hacemos droppable, y cuando ya no esta vacia, el droppable lo desabilitamos.. por alguna razon cuando el droppable se desabilita el css de jquery hace que el elemento tenga opacity de .35, con esto evitamos eso*/
+    /*opacity: 1;*/
+}
+.ui-droppable-disabled.card{
+    /*opacity: 1;*/
+}
+
+#s-foundation .column, #s-waste, #s-stock{
+    border-width: 3px;
+    border-style: solid;
+}
+
+#s-tableau .column,#s-foundation .column, #s-waste, #s-stock{
+    background-color: #f0f0f0;
+}
+
+#s-stock,#s-stock .card{
+    cursor: pointer; 
+    cursor: hand;
+}
+
+#s-foundation.hover_card,#s-tableau .column.hover_card{
+    background-color: yellow;
+}
+
+.ui-draggable-disabled{
+    opacity: 1 !important;
+}
+
+#footer{
+    float: left;
+}

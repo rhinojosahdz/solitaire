@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+Property of Roberto Jaime Hinojosa Hernandez, All rights reserved.
+-->
+<html>
+
+<head>
+    <title>Solitaire</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1150, user-scalable=no">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="jquery-ui-draggable-droppable-only.min.js"></script>
+
+    <script src="start.js"></script>
+    
+    <!--solitaire-->
+    <script src="s.js"></script>
+    <link href="s.css" type="text/css" rel="stylesheet" media="screen" />
+    <!--\solitaire-->
+
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <div style="display:none" id="s-board">
+        <div id="s-stock"></div>
+        <div id="s-waste"></div>
+        <div id="s-foundation">
+            <div class="column number1 spades"></div>
+            <div class="column number2 hearts"></div>
+            <div class="column number3 diamonds"></div>
+            <div class="column number4 clubs"></div>
+        </div>
+        <div id="s-tableau">
+            <div class="column number1"></div>
+            <div class="column number2"></div>
+            <div class="column number3"></div>
+            <div class="column number4"></div>
+            <div class="column number5"></div>
+            <div class="column number6"></div>
+            <div class="column number7"></div>
+        </div>
+    </div>
+    <div id="s-templates">
+        <div class="card"><img width="125" height="181" src="imgs/cards/back.png" alt="" /></div>
+    </div>
+    <div id="tmp-wrapper-to-load-images">
+        <div style="font-size: 50px">Loading...</div>
+    </div>
+</body>
+
+</html>
