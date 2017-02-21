@@ -4,16 +4,15 @@ window.path = '';
 window.cards_path = window.path + 'imgs/cards-low-res/';
 
 $(function () {
+    $(window).on("load", function () {
+        setTimeout(function () {
+            $('#tmp-wrapper-to-load-images').hide();
+            $('#s-board').show();
+            var s = $('#s-board').s();
+        }, 1000);
+    });
     addImagesSoWindowOnloadWaitsTillTheyAreReady();
-    translateMouseEventsToDragEvents();    
-});
-
-$(window).on("load", function () {
-    setTimeout(function () {
-        $('#tmp-wrapper-to-load-images').hide();
-        $('#s-board').show();
-        var s = $('#s-board').s();
-    }, 1000);
+    translateMouseEventsToDragEvents();
 });
 
 function addImagesSoWindowOnloadWaitsTillTheyAreReady() {
@@ -24,7 +23,7 @@ function addImagesSoWindowOnloadWaitsTillTheyAreReady() {
         // make sure the width/height match the one in s.css
         return $('<img width="125px" height="181" alt="' + card + '" src="' + window.cards_path + card + '">');;
     }
-    cardElements.push(createElement(undefined, undefined, true));    
+    cardElements.push(createElement(undefined, undefined, true));
     for (var i = 0; i < 13; i++) {
         for (var j = 0; j < 4; j++) {
             cardElements.push(createElement(i, j));
